@@ -1,29 +1,23 @@
-const oracledb = require('oracledb');
-// hr schema password
-var password = 'A123' 
-// checkConnection asycn function
-async function checkConnection() {
+const { Pool } = require('pg')
+
+var query = 'SELECT * FROM empleados'
+
+const connectionData = new Pool({
+  user: 'postgres',
+  password: 'A123',
+  host: 'localhost',
+  database: 'prueba_lab_3',
+  port: 5432,
+})
+
+async function getQuery() {
   try {
-    connection = await oracledb.getConnection({
-        user: "hr",
-        password: password,
-        //connectString: "localhost:1521/xepdb1"
-        connectString : "(DESCRIPTION =(ADDRESS = (PROTOCOL = IPC)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SID= PLSExtProc)))"
-    });
-    console.log('connected to database');
+    result = await connectionData.query(query);
+
+    console.log(result.rows);
   } catch (err) {
-    console.error(err.message);
-  } finally {
-    if (connection) {
-      try {
-        // Always close connections
-        await connection.close(); 
-        console.log('close connection success');
-      } catch (err) {
-        console.error(err.message);
-      }
-    }
+    console.log("****  ERROR ****");
   }
 }
 
-checkConnection();
+getQuery();
