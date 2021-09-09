@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>LABORATORIO #3</title>
+</head>
+<body>
+    <div class="statistics">
+        <!--
+        <h1>RAM: ##%</h1>
+        <h1>PROCESADOR: ##%</h1>
+        -->
+        <form>
+            <div>
+                <label for="uname">Sentencia:</label>
+                <input type="text" id="uname" name="name">
+            </div>
+            <div>
+                <button>Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="instancias" id="centrar">
+        <div class="ins1">
+            <h2>Instancia #</h2>
+            <!--
+                <div class="RAM">
+                    
+                </div>
+                <div class="Procesador">
+                    
+                </div>
+            -->
+            <canvas id="instancia1" height="400"></canvas>
+        </div>
+        <div class="ins2">
+            <h2>Instancia #</h2>
+            <canvas></canvas>
+        </div>
+    </div>
+    <script src="../js/cuadros.js"></script>    
+</body>
+</html>
